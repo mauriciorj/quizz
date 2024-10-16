@@ -1,6 +1,6 @@
 const Card = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="w-[90%] pt-7 pb-5 text-center bg-white border border-1 border-slate-300 shadow-md rounded-lg p-4">
+    <div className="h-[60%] w-[90%] pt-10 pb-10 text-center bg-white border border-1 border-slate-300 shadow-md rounded-lg p-4">
       {children}
     </div>
   );

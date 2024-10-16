@@ -1,5 +1,5 @@
 const CardTitle = ({ title }: { title: string }) => {
-  return <h1 className="mb-3 text-2xl font-bold text-gray-500">{title}</h1>;
+  return <h1 className="mb-5 mt-5 text-3xl font-bold text-black">{title}</h1>;
 };
 
 export default CardTitle;

@@ -12,9 +12,9 @@ const ProgressBar = ({
           Voltar
         </button>
       </div>
-      <div className="border border-1 border-slate-300 rounded-md mb-6 h-[20px] w-full bg-white">
+      <div className="border border-1 border-slate-300 rounded-md mb-6 h-[10px] w-full bg-white">
         <div
-          className="h-[19px] pt[-1px] rounded-l-md bg-slate-300"
+          className="h-[9px] pt[-1px] rounded-l-md bg-pink"
           style={{ width: `${progress || 0}%` }}
         ></div>
       </div>
