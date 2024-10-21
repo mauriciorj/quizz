@@ -89,13 +89,16 @@ const Quizz = () => {
     }
   };
 
-  const handleAnswer = (answer?: string | null) => {
+  const handleAnswer = (answer?: string | string[] | null) => {
     console.log("");
     console.log("");
     console.log("step => ", step);
     console.log("answer => ", answer);
     if (answer) {
-      setQuestions((prevState) => ({ ...prevState, [step]: answer }));
+      setQuestions((prevState) => ({
+        ...prevState,
+        [`question${step}`]: answer,
+      }));
     }
     handleStep();
   };

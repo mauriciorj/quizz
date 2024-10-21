@@ -11,11 +11,12 @@ const config: Config = {
     extend: {
       colors: {
         pink: "#F09F8F",
+        darkPink: "#db6148",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
 export default config;

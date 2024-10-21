@@ -1,4 +1,4 @@
-const ButtonIcon = ({
+const ButtonContinue = ({
   icon = null,
   isDisabled = false,
   label,
@@ -13,16 +13,17 @@ const ButtonIcon = ({
 }) => {
   return (
     <button
-      className="flex flow-row items-center px-5 py-3 text-slate-500 border border-1 rounded-md bg-pink hover:bg-darkPink text-white disabled:opacity-55 disabled:bg-slate-400"
+      className="flex flow-row items-center px-32 py-5 text-slate-500 border border-1 rounded-md bg-pink hover:bg-darkPink text-white disabled:opacity-55 disabled:bg-slate-400"
       onClick={() =>
         onClick(value?.toLocaleLowerCase() || label.toLocaleLowerCase())
       }
       disabled={isDisabled}
     >
-      {icon && <div className="w-[25px]">{icon}</div>}
-      <div className={`w-full ${icon ? "ml-2" : "ml-0"}`}>{label}</div>
+      <div className={`w-full ${icon ? "ml-2" : "ml-0"} font-bold text-lg`}>
+        {label.toUpperCase()}
+      </div>
     </button>
   );
 };
 
-export default ButtonIcon;
+export default ButtonContinue;

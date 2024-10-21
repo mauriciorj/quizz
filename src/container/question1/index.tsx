@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import ButtonIcon from "@/components/buttonIcon";
 import Card from "@/components/card";
 import CardDescription from "@/components/cardDescription";
@@ -27,6 +28,12 @@ const Question1 = ({ onClick }: { onClick: () => void }) => {
           </div>
         </div>
       </div>
+      <p className="mt-20 px-20 text-slate-500 text-sm">
+        Continuando você confirma e garante que você leu e entendeu e concordou
+        com os nossos <Link href="/termos-de-uso"><b>Termos de Uso</b></Link>,{" "}
+        <Link href="/politicas-de-privacidade"><b>Políticas de Privacidade</b></Link> e{" "}
+        <Link href="/politicas-de-reembolso"><b>Políticas de Reembolso</b></Link>.
+      </p>
     </Card>
   );
 };
