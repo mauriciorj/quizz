@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import ButtonIcon from "@/components/buttonIcon";
+import ButtonContinue from "@/components/buttonContinue";
 import Card from "@/components/card";
 import CardDescription from "@/components/cardDescription";
 import CardTitle from "@/components/cardTitle";
@@ -15,21 +15,33 @@ const Question18 = ({ onClick }: { onClick: (value: number) => void }) => {
   };
 
   const validConditions = Boolean(
-    btnValue || (btnValue && btnValue > 30) || (btnValue && btnValue < 530)
+    btnValue && btnValue && btnValue > 30 && btnValue < 250
   );
+
   return (
     <Card>
       <CardTitle title="Qual o seu peso (em Kgs)" />
-      <CardDescription description="Precisamos dessa informação para calcular o seu IMC (Índice de Massa Corporal). Esse fator é muito importante para criarmos a sua estratégia." />
       <div className="flex flex-col items-center">
-        <Input
-          label="peso"
-          name="peso"
-          onChange={handleOnChange}
-          type="number"
-        />
-        <div className="mt-20">
-          <ButtonIcon
+        <div className="ml-[-70px]">
+          <Input
+            name="peso"
+            onChange={handleOnChange}
+            placeholder="0"
+            unit="kg"
+            value={btnValue}
+          />
+        </div>
+        <div className="bg-softGrey mx-3 mt-10 px-4 py-4 rounded-lg text-left ">
+          <p className="text-sm text-slate-900 font-bold mb-1">
+            Calculando seu índice de massa corporal
+          </p>
+          <p className="text-sm text-slate-700">
+            IMC - índice de massa corporal, é usado como um fator de risco para
+            vários problemas de saúde.
+          </p>
+        </div>
+        <div className="w-full px-3 mt-5 flex flex-row justify-center">
+          <ButtonContinue
             isDisabled={!validConditions}
             onClick={() =>
               validConditions && btnValue ? onClick(btnValue) : null

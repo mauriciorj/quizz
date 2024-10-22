@@ -6,7 +6,7 @@ import CardTitle from "@/components/cardTitle";
 
 const Question14 = ({ onClick }: { onClick: () => void }) => {
   return (
-    <Card isOverFlow>
+    <Card>
       <CardTitle title="Em média quantas horas você dorme por noite?" />
       <CardDescription description="" />
       <div className="w-full flex flex-col items-center">

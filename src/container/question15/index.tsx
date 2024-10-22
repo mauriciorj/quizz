@@ -55,11 +55,11 @@ const Question15 = ({
   };
 
   return (
-    <Card isOverFlow>
+    <Card hasContinueCta onClick={() => onClick(answers)}>
       <CardTitle title="Você tem algum mau hábito" />
       <CardDescription description="Fique tranquilo porque todos nós temos maus hábitos. Quais são os seus?" />
       <div className="w-full flex flex-col items-center">
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             icon={buttonsLabels.btn1.icon}
             isChecked={answers.includes(buttonsLabels.btn1.value)}
@@ -68,7 +68,7 @@ const Question15 = ({
             value={buttonsLabels.btn1.value}
           />
         </div>
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             icon={buttonsLabels.btn2.icon}
             isChecked={answers.includes(buttonsLabels.btn2.value)}
@@ -77,7 +77,7 @@ const Question15 = ({
             value={buttonsLabels.btn2.value}
           />
         </div>
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             icon={buttonsLabels.btn3.icon}
             isChecked={answers.includes(buttonsLabels.btn3.value)}
@@ -86,7 +86,7 @@ const Question15 = ({
             value={buttonsLabels.btn3.value}
           />
         </div>
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             icon={buttonsLabels.btn4.icon}
             isChecked={answers.includes(buttonsLabels.btn4.value)}
@@ -95,20 +95,13 @@ const Question15 = ({
             value={buttonsLabels.btn4.value}
           />
         </div>
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             icon={buttonsLabels.btn5.icon}
             isChecked={answers.includes(buttonsLabels.btn5.value)}
             label={buttonsLabels.btn5.label}
             onClick={handlerOnClick}
             value={buttonsLabels.btn5.value}
-          />
-        </div>
-        <div className="mr-5 mt-10">
-          <ButtonContinue
-            onClick={() => onClick(answers)}
-            isDisabled={!answers?.length}
-            label="Cotinuar"
           />
         </div>
       </div>

@@ -28,7 +28,7 @@ const Question1 = ({ onClick }: { onClick: () => void }) => {
           </div>
         </div>
       </div>
-      <p className="mt-20 px-20 text-slate-500 text-sm">
+      <p className="mt-20 px-5 text-slate-500 text-xs">
         Continuando você confirma e garante que você leu e entendeu e concordou
         com os nossos <Link href="/termos-de-uso"><b>Termos de Uso</b></Link>,{" "}
         <Link href="/politicas-de-privacidade"><b>Políticas de Privacidade</b></Link> e{" "}

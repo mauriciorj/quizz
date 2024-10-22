@@ -1,6 +1,16 @@
-const CardDescription = ({ description }: { description: string }) => {
+const CardDescription = ({
+  description,
+  isPink,
+}: {
+  description: string;
+  isPink?: boolean;
+}) => {
   return (
-    <div className="min-h-10 text-lg font-bold text-gray-600">{description}</div>
+    <div
+      className={`px-3 mb-5 text-lg ${isPink ? "text-pink" : "text-gray-600"}`}
+    >
+      {description}
+    </div>
   );
 };
 

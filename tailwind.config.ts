@@ -10,10 +10,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        pink: "#F09F8F",
-        darkPink: "#db6148",
         background: "var(--background)",
+        darkPink: "#db6148",
         foreground: "var(--foreground)",
+        pink: "#F09F8F",
+        softGrey: "#f2efee",
+        softGreyTwo: "#d4dae0",
       },
     },
   },

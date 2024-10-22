@@ -8,7 +8,7 @@ import thumbsUp from "@/assets/images/thumbs-up.png";
 
 const Question16 = ({ onClick }: { onClick: () => void }) => {
   return (
-    <Card>
+    <Card hasContinueCta onClick={() => onClick()}>
       <div className="w-full flex text-center justify-center items-center">
         <Image
           alt="Seja bem vindo a sua jornada da dieta!"
@@ -23,11 +23,6 @@ const Question16 = ({ onClick }: { onClick: () => void }) => {
 
 Nós construiremos um plano levando em consideração o que funciona para você (e o que não funciona), para que você possa se manter motivado, construir hábitos saudáveis ​​e atingir suas metas."
       />
-      <div className="w-full flex flex-row justify-center">
-        <div className="mr-5 mt-10">
-          <ButtonContinue label="Cotinuar" onClick={onClick} />
-        </div>
-      </div>
     </Card>
   );
 };

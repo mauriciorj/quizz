@@ -104,193 +104,195 @@ const Quizz = () => {
   };
   const nodeRef = useRef(null);
   return (
-    <div className="h-svh w-full flex flex-col items-center justify-start">
-      <Header step={step} />
+    <div className="h-full w-full flex flex-col items-center justify-start">
+      {step === 1 ? <Header step={step} /> : null}
       {step > 1 && (
-        <div className="w-[90%]">
-          <ProgressBar progress={progress} onClick={() => handleBackStep()} />
+        <div className="h-[10%] w-full">
+          <ProgressBar onClick={() => handleBackStep()} progress={progress} />
         </div>
       )}
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 1}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question1 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 2}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question2 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 3}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question3 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 4}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question4 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 5}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question5 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 6}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question6 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 7}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question7 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 8}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question8 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 9}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question9 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 10}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question10 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 11}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question11 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 12}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question12 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 13}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question13 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 14}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question14 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 15}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question15 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 16}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question16 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 17}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question17 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 18}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question18 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 19}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question19 onClick={handleAnswer} />
-      </CSSTransition>
-      <CSSTransition
-        ref={nodeRef}
-        in={step === 20}
-        timeout={400}
-        classNames="fade"
-        unmountOnExit
-      >
-        <Question20 onClick={handleAnswer} />
-      </CSSTransition>
+      <div className="w-full  h-[90%]">
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 1}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question1 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 2}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question2 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 3}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question3 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 4}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question4 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 5}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question5 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 6}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question6 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 7}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question7 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 8}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question8 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 9}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question9 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 10}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question10 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 11}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question11 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 12}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question12 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 13}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question13 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 14}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question14 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 15}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question15 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 16}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question16 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 17}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question17 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 18}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question18 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 19}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question19 onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 20}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <Question20 onClick={handleAnswer} />
+        </CSSTransition>
+      </div>
     </div>
   );
 };

@@ -17,8 +17,8 @@ const ButtonLargeWithCheck = ({
 }) => {
   return (
     <button
-      className={`w-[500px] flex flow-row justify-between items-center px-5 py-4 text-slate-500 border border-1 rounded-lg opacity-85 ${
-        isChecked ? "bg-pink" : "bg-slate-300"
+      className={`w-full flex flow-row justify-between items-center px-5 py-4 text-slate-500 border border-1 rounded-lg opacity-85 ${
+        isChecked ? "bg-pink" : "bg-softGrey"
       } text-white disabled:opacity-55 disabled:bg-slate-400`}
       onClick={() =>
         onClick(value?.toLocaleLowerCase() || label.toLocaleLowerCase())
@@ -30,7 +30,7 @@ const ButtonLargeWithCheck = ({
           className={`flex p-1 items-center bg-white rounded-full ${
             isChecked
               ? "border border-2 border-pink"
-              : "border border-2 border-slate-400"
+              : "border border-2 border-slate-300"
           }`}
         >
           <div className="w-[15px] h-[15px]">

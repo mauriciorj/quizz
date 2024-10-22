@@ -14,15 +14,15 @@ const Input = ({
   value?: number | null;
 }) => {
   return (
-    <div className="flex">
+    <div className="w-full flex items-center justify-center">
       {label && (
         <label htmlFor={name} className="text-xl text-gray-900">
           {label}
         </label>
       )}
-      <div className="flex flex-row items-baseline relative mt-2">
+      <div className="max-w-[125px] flex flex-row items-baseline justify-center relative mt-2">
         <input
-          className="max-w-[100px] rounded-md border-0 py-2 text-4xl font-bold text-right text-gray-900 ring-0 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-0 focus:ring-inset focus:ring-indigo-600"
+          className="m-0 min-w-0 border-0 px-1 py-2 text-5xl font-bold text-right text-gray-900 ring-0 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-0 focus:ring-inset focus:ring-indigo-600"
           id={name}
           name={name}
           maxLength={3}

@@ -24,7 +24,7 @@ const Question17 = ({
   };
 
   const validConditions = Boolean(
-    btnValue || (btnValue && btnValue > 100) || (btnValue && btnValue < 230)
+    btnValue && btnValue && btnValue > 100 && btnValue < 230
   );
 
   return (
@@ -32,21 +32,30 @@ const Question17 = ({
       <CardTitle title="Qual a sua altura (em cm, exemplo: 172 para 1,72m) ?" />
       <CardDescription description="" />
       <div className="flex flex-col items-center">
-        <Input
-          name="altura"
-          onChange={handleOnChange}
-          placeholder="0"
-          unit="cm"
-          value={btnValue}
-        />
-        <div className="w-full flex flex-row justify-center">
-          <div className="mr-5 mt-10">
-            <ButtonContinue
-              isDisabled={!btnValue}
-              label="Cotinuar"
-              onClick={() => onClick(btnValue)}
-            />
-          </div>
+        <div className="ml-[-30px]">
+          <Input
+            name="altura"
+            onChange={handleOnChange}
+            placeholder="0"
+            unit="cm"
+            value={btnValue}
+          />
+        </div>
+        <div className="bg-softGrey mx-3 mt-10 px-4 py-4 rounded-lg text-left ">
+          <p className="text-sm text-slate-900 font-bold mb-1">
+            Calculando seu índice de massa corporal
+          </p>
+          <p className="text-sm text-slate-700">
+            IMC - índice de massa corporal, é usado como um fator de risco para
+            vários problemas de saúde.
+          </p>
+        </div>
+        <div className="w-full px-3 mt-5 flex flex-row justify-center">
+          <ButtonContinue
+            isDisabled={!validConditions}
+            label="Cotinuar"
+            onClick={() => onClick(btnValue)}
+          />
         </div>
       </div>
     </Card>

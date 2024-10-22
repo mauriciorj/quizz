@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import ButtonContinue from "@/components/buttonContinue";
 import ButtonLargeWithCheck from "@/components/buttonLargeWithCheck";
 import Card from "@/components/card";
 import CardDescription from "@/components/cardDescription";
 import CardTitle from "@/components/cardTitle";
 
-const Question6 = ({ onClick }: { onClick: (values: string[] | null) => void }) => {
+const Question6 = ({
+  onClick,
+}: {
+  onClick: (values: string[] | null) => void;
+}) => {
   const [answers, setAnswers] = useState<string[]>([]);
 
   const handlerOnClick = (value?: string) => {
@@ -76,11 +79,11 @@ const Question6 = ({ onClick }: { onClick: (values: string[] | null) => void }) 
   };
 
   return (
-    <Card isOverFlow>
+    <Card hasContinueCta onClick={() => onClick(answers)}>
       <CardTitle title="Quais sao os seus objetivos?" />
       <CardDescription description="Escolha pelo menos uma opção. Você pode escolher mais." />
       <div className="w-full flex flex-col items-center">
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             icon={buttonsLabels.btn1.icon}
             isChecked={answers.includes(buttonsLabels.btn1.value)}
@@ -89,7 +92,7 @@ const Question6 = ({ onClick }: { onClick: (values: string[] | null) => void }) 
             value={buttonsLabels.btn1.value}
           />
         </div>
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             icon={buttonsLabels.btn2.icon}
             isChecked={answers.includes(buttonsLabels.btn2.value)}
@@ -98,7 +101,7 @@ const Question6 = ({ onClick }: { onClick: (values: string[] | null) => void }) 
             value={buttonsLabels.btn2.value}
           />
         </div>
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             icon={buttonsLabels.btn3.icon}
             isChecked={answers.includes(buttonsLabels.btn3.value)}
@@ -107,7 +110,7 @@ const Question6 = ({ onClick }: { onClick: (values: string[] | null) => void }) 
             value={buttonsLabels.btn3.value}
           />
         </div>
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             icon={buttonsLabels.btn4.icon}
             isChecked={answers.includes(buttonsLabels.btn4.value)}
@@ -116,7 +119,7 @@ const Question6 = ({ onClick }: { onClick: (values: string[] | null) => void }) 
             value={buttonsLabels.btn4.value}
           />
         </div>
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             icon={buttonsLabels.btn5.icon}
             isChecked={answers.includes(buttonsLabels.btn5.value)}
@@ -125,7 +128,7 @@ const Question6 = ({ onClick }: { onClick: (values: string[] | null) => void }) 
             value={buttonsLabels.btn5.value}
           />
         </div>
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             icon={buttonsLabels.btn6.icon}
             isChecked={answers.includes(buttonsLabels.btn6.value)}
@@ -134,7 +137,7 @@ const Question6 = ({ onClick }: { onClick: (values: string[] | null) => void }) 
             value={buttonsLabels.btn6.value}
           />
         </div>
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             icon={buttonsLabels.btn7.icon}
             isChecked={answers.includes(buttonsLabels.btn7.value)}
@@ -143,7 +146,7 @@ const Question6 = ({ onClick }: { onClick: (values: string[] | null) => void }) 
             value={buttonsLabels.btn7.value}
           />
         </div>
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             icon={buttonsLabels.btn8.icon}
             isChecked={answers.includes(buttonsLabels.btn8.value)}
@@ -152,7 +155,7 @@ const Question6 = ({ onClick }: { onClick: (values: string[] | null) => void }) 
             value={buttonsLabels.btn8.value}
           />
         </div>
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             icon={buttonsLabels.btn9.icon}
             isChecked={answers.includes(buttonsLabels.btn9.value)}
@@ -161,20 +164,13 @@ const Question6 = ({ onClick }: { onClick: (values: string[] | null) => void }) 
             value={buttonsLabels.btn9.value}
           />
         </div>
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             icon={buttonsLabels.btn10.icon}
             isChecked={answers.includes(buttonsLabels.btn10.value)}
             label={buttonsLabels.btn10.label}
             onClick={handlerOnClick}
             value={buttonsLabels.btn10.value}
-          />
-        </div>
-        <div className="mr-5 mt-10">
-          <ButtonContinue
-            onClick={() => onClick(answers)}
-            isDisabled={!answers?.length}
-            label="Cotinuar"
           />
         </div>
       </div>

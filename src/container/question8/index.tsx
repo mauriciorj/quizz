@@ -44,11 +44,11 @@ const Question8 = ({
     },
   };
   return (
-    <Card>
+    <Card hasContinueCta onClick={() => onClick(answers)}>
       <CardTitle title="Quais partes você quer melhorar?" />
       <CardDescription description="Escolha pelo menos uma opção. Você pode escolher mais." />
       <div className="w-full flex flex-col items-center">
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             isChecked={answers.includes(buttonsLabels.btn1.value)}
             label={buttonsLabels.btn1.label}
@@ -56,7 +56,7 @@ const Question8 = ({
             value={buttonsLabels.btn1.value}
           />
         </div>
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             isChecked={answers.includes(buttonsLabels.btn2.value)}
             label={buttonsLabels.btn2.label}
@@ -64,7 +64,7 @@ const Question8 = ({
             value={buttonsLabels.btn2.value}
           />
         </div>
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             isChecked={answers.includes(buttonsLabels.btn3.value)}
             label={buttonsLabels.btn3.label}
@@ -72,19 +72,12 @@ const Question8 = ({
             value={buttonsLabels.btn3.value}
           />
         </div>
-        <div className="mt-3">
+        <div className="w-full px-3 mt-3">
           <ButtonLargeWithCheck
             isChecked={answers.includes(buttonsLabels.btn4.value)}
             label={buttonsLabels.btn4.label}
             onClick={handlerOnClick}
             value={buttonsLabels.btn4.value}
-          />
-        </div>
-        <div className="mr-5 mt-10">
-          <ButtonContinue
-            onClick={() => onClick(answers)}
-            isDisabled={!answers?.length}
-            label="Cotinuar"
           />
         </div>
       </div>

@@ -1,8 +1,8 @@
 const Header = ({ step }: { step: number }) => {
   return (
     <nav
-      className={`w-full flex flex-row pl-5 pt-5 items-center ${
-        step > 1 ? "justify-center mb-0" : "justify-start mb-10"
+      className={`w-full flex flex-row pl-5 pt-2 items-center ${
+        step > 1 ? "justify-center mb-0" : "justify-start mb-5"
       }`}
     >
       <div>Logo</div>

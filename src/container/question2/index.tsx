@@ -11,10 +11,20 @@ const Question2 = ({ onClick }: { onClick: () => void }) => {
       <CardDescription description="Biologicamente o sexo e um fator que afeta a sua taxa metabolica, que determina quantas calorias voce queima por dia" />
       <div className="w-full flex flex-col items-center">
         <div className="mt-3">
-          <ButtonLarge icon="👨‍🦰" label="Homem" onClick={onClick} value="homem" />
+          <ButtonLarge
+            icon="👩‍🦰"
+            label="Mulher"
+            onClick={onClick}
+            value="mulher"
+          />
         </div>
         <div className="mt-3">
-          <ButtonLarge icon="👩‍🦰" label="Mulher" onClick={onClick} value="mulher" />
+          <ButtonLarge
+            icon="👨‍🦰"
+            label="Homem"
+            onClick={onClick}
+            value="homem"
+          />
         </div>
       </div>
     </Card>
