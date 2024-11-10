@@ -1,3 +1,6 @@
+import Image from "next/image";
+import logo from "@/assets/images/logo_no_bg.png";
+
 const Header = ({ step }: { step: number }) => {
   return (
     <nav
@@ -5,7 +8,14 @@ const Header = ({ step }: { step: number }) => {
         step > 1 ? "justify-center mb-0" : "justify-start mb-5"
       }`}
     >
-      <div>Logo</div>
+      <div>
+        <Image
+          alt="Seja bem vindo a sua jornada da dieta!"
+          src={logo}
+          width={50}
+          height={50}
+        />
+      </div>
       <div className="text-2xl font-bold ml-2">Nome</div>
     </nav>
   );

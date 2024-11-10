@@ -24,7 +24,7 @@ const ButtonLarge = ({
       disabled={isDisabled}
     >
       <div
-        className={`text-slate-900 text-xl font-bold ${icon ? "ml-2" : "ml-0"}`}
+        className={`text-slate-900 text-xl text-left font-bold ${icon ? "ml-2" : "ml-0"}`}
       >
         {label}
       </div>

@@ -17,6 +17,9 @@ const config: Config = {
         softGrey: "#f2efee",
         softGreyTwo: "#d4dae0",
       },
+      animation: {
+        "progress-bar": "1s ease-out 0s 1 normal forwards running",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],

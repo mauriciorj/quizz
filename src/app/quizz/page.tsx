@@ -4,76 +4,56 @@ import React, { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import Header from "@/components/header";
 import ProgressBar from "@/components/progressBar";
-import Question1 from "@/container/question1";
-import Question2 from "@/container/question2";
-import Question3 from "@/container/question3";
-import Question4 from "@/container/question4";
-import Question5 from "@/container/question5";
-import Question6 from "@/container/question6";
-import Question7 from "@/container/question7";
-import Question8 from "@/container/question8";
-import Question9 from "@/container/question9";
-import Question10 from "@/container/question10";
-import Question11 from "@/container/question11";
-import Question12 from "@/container/question12";
-import Question13 from "@/container/question13";
-import Question14 from "@/container/question14";
-import Question15 from "@/container/question15";
-import Question16 from "@/container/question16";
-import Question17 from "@/container/question17";
-import Question18 from "@/container/question18";
-import Question19 from "@/container/question19";
-import Question20 from "@/container/question20";
+import Age from "@/container/age";
+import BadHabits from "@/container/badHabits";
+import BodyPartsToImprove from "@/container/bodyPartsToImprove";
+import BodyType from "@/container/bodyType";
+import BodyTypeYouWant from "@/container/bodyTypeYouWant";
+import Gender from "@/container/gender";
+import HowMuchDoYouSleep from "@/container/howMuchDoYouSleep";
+import HowMuchWaterDoYouDrink from "@/container/howMuchWaterDoYouDrink";
+import JoinUs from "@/container/joinUs";
+import LastStep from "@/container/lastStep";
+import LastTimeYouWereHappy from "@/container/lastTimeYouWereHappy";
+import ThankYouForTrustOnUs from "@/container/thankYouForTrustOnUs";
+import Welcome from "@/container/welcome";
+import WhereDoYouUsuallyEat from "@/container/whereDoYouUsuallyEat";
+import WorkOut from "@/container/workOut";
+import YouAreOnTheRightPath from "@/container/youAreOnTheRightPath";
+import YourAge from "@/container/yourAge";
+import YourGoals from "@/container/yourGoals";
+import YourHeight from "@/container/yourHeight";
+import YourTargetWeight from "@/container/yourTargetWeight";
+import YourCurrentWeight from "@/container/yourCurrentWeight";
 import "./styles.css";
+import BreakfastTime from "@/container/breakfastTime";
+import LunchTime from "@/container/lunchTime";
+import DinnerTime from "@/container/dinnerTime";
+import WorkDailyTime from "@/container/workDailyTime";
+import WorkDailyRoutine from "@/container/workDailyRoutine";
+import BreathAfterWalking from "@/container/breathAfterWalking";
+import TimeWalkingPerDay from "@/container/timeWalkingPerDay";
+import PageLoader from "@/components/pageLoader";
+import FastingWholeDay from "@/container/fastingWholeDay";
+import CalculateWeightLossPace from "@/container/CalculateWeightLossPace";
+import ThankYouForTrust from "@/container/thankYouForTrust";
+import WhatYouKnowAboutIntermittentFasting from "@/container/WhatYouKnowAboutIntermittentFasting";
+import AboutIntermittentFasting from "@/container/AboutIntermittentFasting";
+import AreYouExcited from "@/container/AreYouExcited";
+import YourSummary from "@/container/YourSummary";
+import ProgressBarWithCursor from "@/components/progressBarWithCursor";
 
 interface questionsProps {
-  question1: string | null;
-  question2: string | null;
-  question3: string | null;
-  question4: string | null;
-  question5: string | null;
-  question6: string | null;
-  question7: string | null;
-  question8: string | null;
-  question9: string | null;
-  question10: string | null;
-  question11: string | null;
-  question12: string | null;
-  question13: string | null;
-  question14: string | null;
-  question15: string | null;
-  question16: string | null;
-  question17: string | null;
-  question18: string | null;
-  question19: string | null;
-  question20: string | null;
+  [key: number]: string;
 }
 
 const Quizz = () => {
   const [progress, setProgress] = useState(0);
-  const [step, setStep] = useState(1);
-  const [questions, setQuestions] = useState<questionsProps>({
-    question1: null,
-    question2: null,
-    question3: null,
-    question4: null,
-    question5: null,
-    question6: null,
-    question7: null,
-    question8: null,
-    question9: null,
-    question10: null,
-    question11: null,
-    question12: null,
-    question13: null,
-    question14: null,
-    question15: null,
-    question16: null,
-    question17: null,
-    question18: null,
-    question19: null,
-    question20: null,
-  });
+  const [step, setStep] = useState(0);
+  const [questions, setQuestions] = useState<questionsProps | {}>({});
+  const [isWoman, setIsWoman] = useState<boolean>(true);
+
+  const nodeRef = useRef(null);
 
   console.log("questions => ", questions);
 
@@ -89,29 +69,39 @@ const Quizz = () => {
     }
   };
 
-  const handleAnswer = (answer?: string | string[] | null) => {
+  const handleAnswer = (answer?: string | string[] | number | null) => {
     console.log("");
     console.log("");
     console.log("step => ", step);
     console.log("answer => ", answer);
     if (answer) {
-      setQuestions((prevState) => ({
+      setQuestions((prevState: questionsProps) => ({
         ...prevState,
-        [`question${step}`]: answer,
+        [`question-${step}`]: answer,
       }));
+      if (step === 2 && answer !== "mulher") {
+        setIsWoman(false);
+      }
     }
     handleStep();
   };
-  const nodeRef = useRef(null);
+
+  //TODO - hide ProgressBar when step = 3, 24 (thankyou page)
+
   return (
-    <div className="h-full w-full flex flex-col items-center justify-start">
+    <div className="h-full w-full p-0 m-0 flex flex-col items-center justify-start">
       {step === 1 ? <Header step={step} /> : null}
       {step > 1 && (
-        <div className="h-[10%] w-full">
+        <div className="w-full h-[10%]">
           <ProgressBar onClick={() => handleBackStep()} progress={progress} />
         </div>
       )}
-      <div className="w-full  h-[90%]">
+      {step === 0 && (
+        <div className="w-full h-full">
+          <PageLoader setNextStep={handleStep} />
+        </div>
+      )}
+      <div className="w-full h-[89%]">
         <CSSTransition
           ref={nodeRef}
           in={step === 1}
@@ -119,7 +109,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question1 onClick={handleAnswer} />
+          <Age onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -128,7 +118,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question2 onClick={handleAnswer} />
+          <Gender onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -137,7 +127,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question3 onClick={handleAnswer} />
+          <Welcome onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -146,7 +136,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question4 onClick={handleAnswer} />
+          <BodyType onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -155,7 +145,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question5 onClick={handleAnswer} />
+          <BodyTypeYouWant onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -164,7 +154,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question6 onClick={handleAnswer} />
+          <YourGoals onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -173,7 +163,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question7 onClick={handleAnswer} />
+          <JoinUs onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -182,7 +172,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question8 onClick={handleAnswer} />
+          <BodyPartsToImprove onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -191,7 +181,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question9 onClick={handleAnswer} />
+          <LastTimeYouWereHappy onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -200,7 +190,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question10 onClick={handleAnswer} />
+          <YouAreOnTheRightPath onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -209,7 +199,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question11 onClick={handleAnswer} />
+          <BreakfastTime onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -218,7 +208,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question12 onClick={handleAnswer} />
+          <LunchTime onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -227,7 +217,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question13 onClick={handleAnswer} />
+          <DinnerTime onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -236,7 +226,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question14 onClick={handleAnswer} />
+          <WhereDoYouUsuallyEat onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -245,7 +235,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question15 onClick={handleAnswer} />
+          <FastingWholeDay onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -254,7 +244,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question16 onClick={handleAnswer} />
+          <WorkOut onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -263,7 +253,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question17 onClick={handleAnswer} />
+          <WorkDailyTime onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -272,7 +262,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question18 onClick={handleAnswer} />
+          <WorkDailyRoutine onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -281,7 +271,7 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question19 onClick={handleAnswer} />
+          <BreathAfterWalking onClick={handleAnswer} />
         </CSSTransition>
         <CSSTransition
           ref={nodeRef}
@@ -290,7 +280,148 @@ const Quizz = () => {
           classNames="fade"
           unmountOnExit
         >
-          <Question20 onClick={handleAnswer} />
+          <TimeWalkingPerDay onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 21}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <HowMuchWaterDoYouDrink onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 22}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <HowMuchDoYouSleep onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 23}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <CalculateWeightLossPace setProgressBarDone={handleStep} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 24}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <ThankYouForTrust onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 25}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <BadHabits onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 26}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <WhatYouKnowAboutIntermittentFasting onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 27}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <AboutIntermittentFasting onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 28}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <AreYouExcited onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 29}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <YourHeight onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 30}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <YourCurrentWeight
+            height={questions?.["question-29"]}
+            onClick={handleAnswer}
+          />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 31}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <YourTargetWeight
+            weight={questions?.["question-30"]}
+            onClick={handleAnswer}
+          />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 32}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <YourAge onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 33}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <YourSummary onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 50}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <ThankYouForTrustOnUs onClick={handleAnswer} />
+        </CSSTransition>
+        <CSSTransition
+          ref={nodeRef}
+          in={step === 50}
+          timeout={400}
+          classNames="fade"
+          unmountOnExit
+        >
+          <LastStep onClick={handleAnswer} />
         </CSSTransition>
       </div>
     </div>
